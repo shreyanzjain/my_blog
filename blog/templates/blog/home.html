@@ -4,7 +4,8 @@
         <div class="card text-dark mb-2 border-light">
             <div class="card-body">
                 <h2 class="card-title mb-0">{{ post.title }}</h2>
-                <small class="text-muted">{{ post.date_posted }} @{{post.author}}</small>
+                <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
+                <small class="text-muted">{{ post.date_posted|date:"jS F, Y" }} @{{post.author}}</small>
             </div>
             <a class="card-footer" href="#" style="text-decoration: none; color: black;"> {{ post.content }} </a>
         </div>
