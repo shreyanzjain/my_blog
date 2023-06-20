@@ -18,4 +18,10 @@ class Profile(models.Model):
         if img.height > 300 or img.width > 300:
             op_size = (300, 300)
             img.thumbnail(op_size)
+            width, height = img.size
+            left = (width - 300)/2
+            right = (width + 300)/2
+            top = (height - 300)/2
+            bottom = (height + 300)/2
+            img = img.crop((left, top, right, bottom))
             img.save(self.image.path)
