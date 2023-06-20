@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <h3>{{ user.username }} is logged in</h3>
+        </div>
+    </div>
+{% endblock body %}
