@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, " />
     <title>Document</title>
   </head>
-  <body style="background-color: rgb(59, 91, 125);">
+  <body style="background-color: rgb(4, 24, 49);">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-dark sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(4, 24, 49);">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{%url 'blog-home'%}">Blog</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-8 mt-3">
                 {% if messages %}

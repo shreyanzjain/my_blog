@@ -1,13 +1,24 @@
 {% extends "blog/base.html "%}
 {%block body%}
     {% for post in posts %}
-        <div class="card text-dark mb-2 border-light">
-            <div class="card-body">
-                <h2 class="card-title mb-0">{{ post.title }}</h2>
-                <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
-                <small class="text-muted">{{ post.date_posted|date:"jS F, Y" }} @{{post.author}}</small>
+        <div class="card mb-2" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ post.author.profile.image.url }}" class="img-fluid rounded-start">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title mb-0">{{ post.title }}</h2>
+                    <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
+                    <small class="text-muted">{{ post.date_posted|date:"jS F, Y" }} @{{post.author}}</small>
+                    <br/>
+                    <a class="card-text" href='#' style="text-decoration: none; color: black;"> 
+                        {{ post.content }} 
+                    </a>
+                </div>
+              </div>
             </div>
-            <a class="card-footer" href="#" style="text-decoration: none; color: black;"> {{ post.content }} </a>
-        </div>
+          </div>
+          
     {% endfor %}
 {% endblock body %}
