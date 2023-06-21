@@ -46,6 +46,7 @@ class PostCreateView(CreateView):
     
 class PostUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
+    template_name = 'blog/post_form_update.html'
     fields =['title', 'content']
 
     def form_valid(self, form):
