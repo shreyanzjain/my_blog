@@ -1,21 +1,21 @@
-{% extends "blog/base.html "%} {%block body%} {% for post in posts %}
+{% extends "blog/base.html "%} {%block body%} 
+<!-- <h1> {{ user.username }}</h1> -->
+{% for post in object.post_set.all reversed %}
 <div class="card mb-3">
   <div class="card-body">
     <div class="d-flex flex-start align-items-center">
       <img
         class="rounded-circle shadow-1-strong me-3"
-        src="{{ post.author.profile.image.url }}"
+        src="{{ object.profile.image.url }}"
         alt="avatar"
         width="60"
         height="60"
       />
       <div>
-        <h6 class="fw-bold mb-1">
-          {{post.title}}
-        </h6>
+        <h6 class="fw-bold mb-1">{{post.title}}</h6>
         <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
         <p class="text-muted small mb-0">
-          <a href="{%url 'blog-user-posts' post.author_id %}">@{{post.author}}</a> on {{ post.date_posted|date:"jS F, Y" }}
+          @{{post.author}} on {{ post.date_posted|date:"jS F, Y" }}
         </p>
       </div>
     </div>

@@ -1,0 +1,23 @@
+{% extends "blog/base.html "%} {%block body%}
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="d-flex flex-start align-items-center">
+      <img
+        class="rounded-circle shadow-1-strong me-3"
+        src="{{ object.author.profile.image.url }}"
+        alt="avatar"
+        width="60"
+        height="60"
+      />
+      <div>
+        <h6 class="fw-bold mb-1">{{object.title}}</h6>
+        <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
+        <p class="text-muted small mb-0">
+          @{{object.author}} on {{ object.date_posted|date:"jS F, Y" }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">{{post.content}}</div>
+</div>
+{% endblock body %}
