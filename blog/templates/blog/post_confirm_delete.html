@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block body %}
+    <div class="card border-light">
+        <h4 class="card-header">Are you sure you want to delete the post "{{ object.title }}"?</h4>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-dark mb-1" type="submit">Delete Post</button>
+                    <a class="btn btn-outline-secondary mb-1" href="{%url 'blog-post-detail' object.id %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock body %}

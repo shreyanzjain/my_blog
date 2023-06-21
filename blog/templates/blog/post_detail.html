@@ -18,6 +18,11 @@
       </div>
     </div>
   </div>
-  <div class="card-footer">{{post.content}}</div>
+  <div class="card-footer">{{post.content}}<br/>
+    {% if object.author == user %}
+      <a href="{% url 'blog-post-update' object.id %}" class="btn btn-outline-secondary mt-2">Update</a>
+      <a href="{% url 'blog-post-delete' object.id %}" class="btn btn-outline-dark mt-2">Delete</a>
+    {% endif %}
+  </div>
 </div>
 {% endblock body %}
