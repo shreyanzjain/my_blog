@@ -13,7 +13,7 @@
         <h6 class="fw-bold mb-1">{{object.title}}</h6>
         <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
         <p class="text-muted small mb-0">
-          @{{object.author}} on {{ object.date_posted|date:"jS F, Y" }}
+          <a href="{%url 'blog-user-posts' object.author_id %}">@{{object.author}}</a> on {{ object.date_posted|date:"jS F, Y" }}
         </p>
       </div>
     </div>
