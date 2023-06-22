@@ -12,6 +12,7 @@
         <h5 class="card-header">@{{ user.username }}</h5>
         <div class="card-body">
           <div class="card-text">Email: {{user.email}}</div>
+          <a class="btn btn-outline-dark mt-3" href="{% url 'password-reset' %}">Reset Password</a>
         </div>
       </div>
     </div>
