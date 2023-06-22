@@ -1,5 +1,4 @@
 # STATUS A MULTI-USER BLOG WEBSITE
-UI is highly inspired by twitter!
 
 make sure you have python version 3.7.7 installed\
 or have a virtual-env running
