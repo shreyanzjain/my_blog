@@ -1,11 +1,9 @@
 {% extends 'blog/base.html' %}
 {% block body %}
-<div class="card border-light">
-    <h4 class="card-header">You have been logged out</h4>
-    <div class="card-body">
-        <a class="ml-2" href="{%url 'user-login'%}" style="color: black;">
-            Back to sign in.
-        </a>
-    </div>
-</div>
+<h2 class="text-white">
+    You have been logged out!
+</h2>
+<a class="ml-2" href="{%url 'user-login'%}" style="color: white;">
+    Back to sign in.
+</a>
 {% endblock body %}

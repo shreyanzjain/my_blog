@@ -1,11 +1,12 @@
-{% extends 'blog/base.html' %}
-{% load crispy_forms_tags %}
-{% block body %}
+{% extends 'blog/base.html' %} {% load crispy_forms_tags %} {% block body %}
 <div class="col mb-3">
-  <div class="card">
+  <div class="card mb-3">
     <div class="row g-0">
-      <div class="col me-0">
-        <img src="{{ user.profile.image.url }}" class="img-fluid rounded-start">
+      <div class="col-md-4 me-0">
+        <img
+          src="{{ user.profile.image.url }}"
+          class="img-fluid rounded-start"
+        />
       </div>
       <div class="col-md-8">
         <h5 class="card-header">@{{ user.username }}</h5>
@@ -15,16 +16,15 @@
       </div>
     </div>
   </div>
-</div>
-<div class="card mb-3">
-  <h4 class="card-header">Update details</h4>
-  <div class="card-body">
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ update_form|crispy }}
-      {{ profile_update_form|crispy}}
-    <button class="btn btn-outline-dark">Submit</button>
-    </form>
+  <div class="card mb-3">
+    <h4 class="card-header">Update details</h4>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ update_form|crispy }} 
+        {{ profile_update_form|crispy }}
+        <button class="btn btn-outline-dark">Submit</button>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock body %}
