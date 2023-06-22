@@ -17,5 +17,5 @@ Now, run:
 python manage.py runserver
 ```
 
-Click on the image below for the youtube video:
+Click on the image below for the youtube video:\
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EwshHi_um3Q/0.jpg)](https://www.youtube.com/watch?v=EwshHi_um3Q)
