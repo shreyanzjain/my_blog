@@ -8,6 +8,6 @@ urlpatterns = [
     path('post/new/', login_required(views.PostCreateView.as_view()), name='blog-post-create'),
     path('post/<int:pk>/update/', login_required(views.PostUpdateView.as_view()), name='blog-post-update'),
     path('post/<int:pk>/delete/', login_required(views.PostDeleteView.as_view()), name='blog-post-delete'),
-    path('<pk>/posts/', login_required(views.UserPostListView.as_view()), name='blog-user-posts'),
+    path('user/<str:username>/', login_required(views.UserPostListView.as_view()), name='blog-user-posts'),
     path('about', views.about, name='blog-about'),
 ]

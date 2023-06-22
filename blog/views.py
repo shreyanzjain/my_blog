@@ -1,25 +1,12 @@
-from typing import Optional
-from django.shortcuts import render
+from typing import Any, Optional
+from django.db.models.query import QuerySet
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from .models import Post
 from django.contrib.auth.models import User
 
-# posts = [
-#     {
-#         'title': 'Post 1',
-#         'author': 'Shreyans',
-#         'date_posted': 'Aug 27, 2021',
-#         'content': 'This is post 1'
-#     },
-#     {
-#         'title': 'Post 2',
-#         'author': 'Pinky',
-#         'date_posted': 'Aug 28, 2021',
-#         'content': 'This is post 2'
-#     }
-# ]
 # Create your views here.
 
 class PostListView(ListView):
@@ -27,14 +14,21 @@ class PostListView(ListView):
     template_name='blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    paginate_by = 4
 
 
 class PostDetailView(DetailView):
     model = Post
 
-class UserPostListView(DetailView):
-    model = User
+class UserPostListView(ListView):
+    model = Post
     template_name='blog/user_post.html'
+    context_object_name = 'posts'
+    paginate_by = 3
+
+    def get_queryset(self) -> QuerySet[Any]:
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date_posted')
 
 class PostCreateView(CreateView):
     model = Post
