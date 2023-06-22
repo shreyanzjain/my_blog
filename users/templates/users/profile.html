@@ -1,20 +1,22 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
 {% block body %}
-<div class="card">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{ user.profile.image.url }}" class="img-fluid rounded-start">
-    </div>
-    <div class="col-md-8">
-      <h5 class="card-header">@{{ user.username }}</h5>
-      <div class="card-body">
-        <div class="card-text">Email: {{user.email}}</div>
+<div class="col-md-8 mb-3">
+  <div class="card">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ user.profile.image.url }}" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <h5 class="card-header">@{{ user.username }}</h5>
+        <div class="card-body">
+          <div class="card-text">Email: {{user.email}}</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="card mt-3">
+<div class="card mb-3">
   <h4 class="card-header">Update details</h4>
   <div class="card-body">
     <form method="post" enctype="multipart/form-data">
