@@ -15,3 +15,8 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('blog-post-detail', kwargs={'pk': self.pk})
+
+class Replies(models.Model):
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
