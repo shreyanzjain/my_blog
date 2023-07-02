@@ -133,9 +133,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 
 # SECURITY WARNING: keep the secrets used in production secret!
-SECRET_KEY = 'django-insecure-78*xgll_5+ud+4n!fsaod7c!2m!kg-1)cc1&)ypqtezu5!wg_'
+SECRET_KEY = ' '
 EMAIL_HOST_USER = 'infintyc3@gmail.com'
-EMAIL_HOST_PASSWORD = 'wrksbpbhhwmosfih'
+EMAIL_HOST_PASSWORD = ' '
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
