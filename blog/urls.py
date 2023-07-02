@@ -10,4 +10,6 @@ urlpatterns = [
     path('post/<int:pk>/delete/', login_required(views.PostDeleteView.as_view()), name='blog-post-delete'),
     path('user/<str:username>/', login_required(views.UserPostListView.as_view()), name='blog-user-posts'),
     path('about', views.about, name='blog-about'),
+    path('post/<int:pk>/comment/create', login_required(views.CommentCreateView.as_view()), name='blog-post-comment-create'),
+    path('comment/<int:pk>', login_required(views.CommentDeleteView.as_view()), name='blog-post-comment-delete')
 ]

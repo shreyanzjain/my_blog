@@ -13,7 +13,7 @@
         <h6 class="fw-bold mb-1">{{object.title}}</h6>
         <!-- j: day, S: st, nd, etc., F: January, February, etc., Y: 1999 etc. -->
         <p class="text-muted small mb-0">
-          <a href="{%url 'blog-user-posts' object.author_id %}">@{{object.author}}</a> on {{ object.date_posted|date:"jS F, Y" }}
+          <a href="{%url 'blog-user-posts' object.author %}">@{{object.author}}</a> on {{ object.date_posted|date:"jS F, Y" }}
         </p>
       </div>
     </div>
@@ -22,7 +22,27 @@
     {% if object.author == user %}
       <a href="{% url 'blog-post-update' object.id %}" class="btn btn-outline-secondary mt-2">Update</a>
       <a href="{% url 'blog-post-delete' object.id %}" class="btn btn-outline-dark mt-2">Delete</a>
+      <a href="{% url 'blog-post-comment-create' object.id %}" class="btn btn-outline-warning mt-2">Add Comment</a>
+    {% else %}
+    <a href="{% url 'blog-post-comment-create' pk=object.id %}" class="btn btn-outline-dark mt-2">Add Comment</a>
     {% endif %}
   </div>
 </div>
+
+{% if object.post_comments.all %}
+<h3 class="text-light mt-2">Comments...</h3>
+  {% for comment in object.post_comments.all %}
+    <div class="card mb-3">
+      <a class="card-header" href="{% url 'blog-user-posts' comment.user.username %}">
+         @{{ comment.user.username }}
+      </a>
+      <div class="card-body">
+        {{ comment.content }}
+        {% if comment.user == user %}
+        <a class="btn btn-outline-danger" href="{% url 'blog-post-comment-delete' pk=comment.id %}"> Delete </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}
 {% endblock body %}
