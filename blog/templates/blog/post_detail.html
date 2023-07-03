@@ -32,14 +32,15 @@
 {% if object.post_comments.all %}
 <h3 class="text-light mt-2">Comments...</h3>
   {% for comment in object.post_comments.all %}
-    <div class="card mb-3">
+    <div class="card mb-3 ">
       <a class="card-header" href="{% url 'blog-user-posts' comment.user.username %}">
          @{{ comment.user.username }}
       </a>
       <div class="card-body">
         {{ comment.content }}
+        <br/>
         {% if comment.user == user %}
-        <a class="btn btn-outline-danger" href="{% url 'blog-post-comment-delete' pk=comment.id %}"> Delete </a>
+        <a class="btn btn-outline-danger mt-3 my-0" href="{% url 'blog-post-comment-delete' pk=comment.id %}"> Delete </a>
         {% endif %}
       </div>
     </div>
