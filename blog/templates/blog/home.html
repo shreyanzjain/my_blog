@@ -1,6 +1,6 @@
 {% extends "blog/base.html "%} {%block body%} {% for post in posts %}
-<div class="card mb-3">
-  <div class="card-body">
+<div class="card mb-3 text-white border border-white" style="background-color: rgb(4, 24, 49);">
+  <div class="card-body border-bottom">
     <div class="d-flex flex-start align-items-center">
       <img
         class="rounded-circle shadow-1-strong me-3"
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <a class="card-footer" href="{% url 'blog-post-detail' post.id %}" style="text-decoration: none; color: black;">{{post.content}}</a>
+  <a class="card-footer text-white" href="{% url 'blog-post-detail' post.id %}" style="text-decoration: none; color: black;">{{post.content}}</a>
 </div>
 {% endfor %} 
 <div class="mb-3">

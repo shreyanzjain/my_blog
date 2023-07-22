@@ -1,6 +1,6 @@
 {% extends "blog/base.html "%} {%block body%}
-<div class="card mb-3">
-  <div class="card-body">
+<div class="card mb-2 text-white border border-white" style="background-color:rgb(4, 24, 49);">
+  <div class="card-body border-bottom border-white">
     <div class="d-flex flex-start align-items-center">
       <img
         class="rounded-circle shadow-1-strong me-3"
@@ -19,18 +19,20 @@
     </div>
   </div>
   <div class="card-footer">{{post.content}}<br/>
-    {% if object.author == user %}
-      <a href="{% url 'blog-post-update' object.id %}" class="btn btn-outline-secondary mt-2">Update</a>
-      <a href="{% url 'blog-post-delete' object.id %}" class="btn btn-outline-dark mt-2">Delete</a>
-      <a href="{% url 'blog-post-comment-create' object.id %}" class="btn btn-outline-warning mt-2">Add Comment</a>
-    {% else %}
-    <a href="{% url 'blog-post-comment-create' pk=object.id %}" class="btn btn-outline-dark mt-2">Add Comment</a>
-    {% endif %}
   </div>
+</div>
+<div class="pb-3 border-bottom border-white">
+  {% if object.author == user %}
+  <a href="{% url 'blog-post-update' object.id %}" class="btn btn-outline-secondary mt-2 me-1">Update</a>
+  <a href="{% url 'blog-post-delete' object.id %}" class="btn btn-outline-light mt-2 me-1">Delete</a>
+  <a href="{% url 'blog-post-comment-create' object.id %}" class="btn btn-outline-warning mt-2 me-1">Add Comment</a>
+  {% else %}
+  <a href="{% url 'blog-post-comment-create' pk=object.id %}" class="btn btn-outline-light mt-2">Add Comment</a>
+  {% endif %}
 </div>
 
 {% if object.post_comments.all %}
-<h3 class="text-light mt-2">Comments...</h3>
+<h4 class="text-light mt-2">Comments...</h4>
   {% for comment in object.post_comments.all %}
     <div class="card mb-3 ">
       <a class="card-header" href="{% url 'blog-user-posts' comment.user.username %}">
